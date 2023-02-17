@@ -1,35 +1,50 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
+	  <Title>EasyLocalize</Title>
+	  <Authors>Mohammad Taghizadeh</Authors>
+	  <Description>A easy way to handle localization in .Net with json</Description>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/mohammadtz/EasyLocalize</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>.Net Localizer, .Net Json Localize</PackageTags>
+	  <PackAsTool>True</PackAsTool>
+	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <TargetFramework>net7.0</TargetFramework>
+	  <OutputType>Library</OutputType>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="newtonsoft.json" Version="13.0.3-beta1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="newtonsoft.json" Version="13.0.2" />
+	</ItemGroup>
 
-  <PropertyGroup>
-        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-  </PropertyGroup>
+	<ItemGroup>
+		<None Remove="Localizations\En.json" />
+		<Content Include="Localizations\En.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Remove="Localizations\Fa.json" />
+		<Content Include="Localizations\Fa.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-        <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <PropertyGroup>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+	<ItemGroup>
+		<None Update="LICENSE.txt">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Localizations\En.json" />
-    <Content Include="Localizations\En.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Remove="Localizations\Fa.json" />
-    <Content Include="Localizations\Fa.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
 </Project>

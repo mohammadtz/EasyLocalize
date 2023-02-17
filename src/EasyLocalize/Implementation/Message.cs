@@ -14,6 +14,8 @@ namespace EasyLocalize.Implementation
         private readonly string _defaultLanguage;
         private string _language;
         private readonly Dictionary<string, Dictionary<string, string>> _messages;
+        public string DefaultHeaderName { get; }
+
         public string DefaultLanguage => _language;
 
         public Message(EasyLocalizeOptions options)
@@ -22,6 +24,7 @@ namespace EasyLocalize.Implementation
             _language = options.DefaultLanguage;
             _defaultLanguage = options.DefaultLanguage;
             _messages = new Dictionary<string, Dictionary<string, string>>();
+            DefaultHeaderName = options.DefaultHeaderName;
             FillData();
         }
         
