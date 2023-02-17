@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="13.0.3-beta1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Localizations\En.json" />
+    <Content Include="Localizations\En.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="Localizations\Fa.json" />
+    <Content Include="Localizations\Fa.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
