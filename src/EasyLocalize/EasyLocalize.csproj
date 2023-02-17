@@ -9,6 +9,18 @@
     <PackageReference Include="newtonsoft.json" Version="13.0.3-beta1" />
   </ItemGroup>
 
+  <PropertyGroup>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+        <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Localizations\En.json" />
     <Content Include="Localizations\En.json">
