@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLocalize.Example", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLocalize", "src\EasyLocalize\EasyLocalize.csproj", "{652C129E-F021-4500-ABD8-5B71F65CE496}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLocalize.DependencyInjection", "src\EasyLocalize.DependencyInjection\EasyLocalize.DependencyInjection.csproj", "{DD5F8BF1-8678-480E-B2EA-997C7091EA76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{652C129E-F021-4500-ABD8-5B71F65CE496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{652C129E-F021-4500-ABD8-5B71F65CE496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{652C129E-F021-4500-ABD8-5B71F65CE496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD5F8BF1-8678-480E-B2EA-997C7091EA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5F8BF1-8678-480E-B2EA-997C7091EA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5F8BF1-8678-480E-B2EA-997C7091EA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5F8BF1-8678-480E-B2EA-997C7091EA76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{9584F9B5-D469-4B49-A38C-7209EF213687} = {7C584B0F-7CA4-4BEC-8975-03068C821B5A}
 		{03B9A8AC-36AD-435D-BE0D-2525AD3E24DA} = {6DFD03AC-6E9C-4744-B558-D2B73171F1D6}
 		{652C129E-F021-4500-ABD8-5B71F65CE496} = {6DFD03AC-6E9C-4744-B558-D2B73171F1D6}
+		{DD5F8BF1-8678-480E-B2EA-997C7091EA76} = {6DFD03AC-6E9C-4744-B558-D2B73171F1D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F453092D-3B19-4DCA-87F1-F4CC0DE14E5E}

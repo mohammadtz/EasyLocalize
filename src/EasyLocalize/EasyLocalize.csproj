@@ -8,13 +8,13 @@
 	  <RepositoryUrl>https://github.com/mohammadtz/EasyLocalize</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageTags>.Net Localizer, .Net Json Localize</PackageTags>
-	  <PackAsTool>True</PackAsTool>
 	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <TargetFramework>net7.0</TargetFramework>
 	  <OutputType>Library</OutputType>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
+	  <Version>1.0.1</Version>
   </PropertyGroup>
 
 	<ItemGroup>
