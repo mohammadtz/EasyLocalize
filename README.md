@@ -18,15 +18,15 @@ var localizeOptions = new EasyLocalizeOptions
   {  
     new()  
     {  
-	   LocalizeKey = "en-US", // this is localization key package work with this name
-	   JsonFilePath = "\\Localizations\\en.json", // json file address
-	   IsExternal = false  // if is true means JsonFilePath is a external resuorce
+	LocalizeKey = "en-US", // this is localization key package work with this name
+	JsonFilePath = "\\Localizations\\en.json", // json file address
+	IsExternal = false  // if is true means JsonFilePath is a external resuorce
     },
     new()  
     {  
-      LocalizeKey = "fa-IR",  
-      JsonFilePath = "https:\\{YOUR_WEBSITEADDRESS}\\Localizations\\fa.json",
-      IsExternal = true
+    	LocalizeKey = "fa-IR",  
+      	JsonFilePath = "https:\\{YOUR_WEBSITEADDRESS}\\Localizations\\fa.json",
+      	IsExternal = true
     },
     // how many language your want just add it here
     // ...
@@ -41,11 +41,11 @@ var easyLocalize = new Message(localizeOptions);
 // and get result of defulat language
 var successMessage = easyLocalize.Get("Success");
 /* 
-	successMessage Response Model:
-	{
-		Value: string, // if key in not valid return localize key your pass it, in Example: "Success"
-		IsValid: boolean // show use value is valid or not
-	}
+    successMessage Response Model:
+    {
+	Value: string, // if key in not valid return localize key your pass it, in Example: "Success"
+	IsValid: boolean // show use value is valid or not
+    }
 */
 
 // for example if pass key is valid write on the console like this: "Operation done successfully"
@@ -126,10 +126,10 @@ public class TestController : ControllerBase
   {  
     return Ok(_message.Get("Success"));
     /* Response Model Example:
-	{
-		Value: string,
-		IsValid: boolean
-	}*/
+    {
+	Value: string,
+	IsValid: boolean
+    }*/
   }
 }
 ```
