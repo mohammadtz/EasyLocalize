@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace EasyLocalize.DependencyInjection.Middlewares;
+namespace EasyLocalize.DependencyInjection;
 // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
 public class EasyLocalizationMiddleware
 {

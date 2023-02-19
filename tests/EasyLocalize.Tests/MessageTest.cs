@@ -28,6 +28,12 @@ public class MessageTest
                     JsonFilePath = "\\Localizations\\fa.json",
                     IsExternal = false
                 },
+                new()
+                {
+                    LocalizeKey = "en-UK",
+                    JsonFilePath = "https://jsonplaceholder.typicode.com/todos/1",
+                    IsExternal = true
+                }
             },
             DefaultLanguage = "fa-IR",
         };
@@ -51,5 +57,12 @@ public class MessageTest
         enResult.IsValid.Should().BeTrue();
         enResult.Value.Should().NotBe(key);
         enResult.Value.Should().Be(EnValue);
+        
+        _message.SetLanguage("en-UK");
+        var ukResult = _message.Get("title");
+        
+        ukResult.IsValid.Should().BeTrue();
+        ukResult.Value.Should().NotBe(key);
+        ukResult.Value.Should().Be("delectus aut autem");
     }
 }

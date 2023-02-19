@@ -19,6 +19,12 @@ var localizeOptions = new EasyLocalizeOptions
             JsonFilePath = "\\Localizations\\fa.json",
             IsExternal = false
         },
+        new()
+        {
+            LocalizeKey = "en-UK",
+            JsonFilePath = "https://jsonplaceholder.typicode.com/todos/1",
+            IsExternal = true
+        }
     },
     // DefaultLanguage = "en-US",
     DefaultLanguage = "fa-IR",
@@ -35,3 +41,9 @@ easyLocalize.SetLanguage("en-US");
 var newSuccessMessage = easyLocalize.Get("Success");
 
 Console.WriteLine(newSuccessMessage.Value);
+
+easyLocalize.SetLanguage("en-UK");
+
+var titleMessage = easyLocalize.Get("title");
+
+Console.WriteLine(titleMessage.Value);
