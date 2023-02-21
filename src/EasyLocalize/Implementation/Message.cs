@@ -25,7 +25,7 @@ public class Message : IMessage
         _client = new HttpClient();
         FillData().Wait();
     }
-        
+
     private async Task FillData()
     {
         foreach (var registerMessage in _registerMessages)
@@ -38,7 +38,7 @@ public class Message : IMessage
                     registerMessage.JsonFilePath.StartsWith("http"):
                     await HttpRequest(registerMessage);
                     continue;
-                case {JsonFilePath: {}} when !registerMessage.JsonFilePath.EndsWith(".json"):
+                case { JsonFilePath: { } } when !registerMessage.JsonFilePath.EndsWith(".json"):
                     throw new Exception($"EasyLocalize - {registerMessage.LocalizeKey}: json file path is invalid");
                 default:
                     ReadFile(registerMessage);
@@ -56,7 +56,7 @@ public class Message : IMessage
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-        
+
             if (registerMessage.LocalizeKey != null && data != null)
                 _messages.Add(registerMessage.LocalizeKey.ToLower(), data);
         }
@@ -92,19 +92,32 @@ public class Message : IMessage
             return values ?? new Dictionary<string, string>();
         }
     }
-        
+
     public EasyLocalizeResponse Get(string key, params object[] parameters)
     {
         var defaultMessage = GetMessagesByDefault;
         defaultMessage.TryGetValue(key, out var value);
+
+        value = FillParameters(parameters, value);
+
         return new EasyLocalizeResponse { Value = value ?? key, IsValid = value != null };
     }
-        
+
+    private static string? FillParameters(object[] parameters, string? value)
+    {
+        for (var i = 0; i < parameters.Length; i++)
+        {
+            value = value?.Replace("{" + i + "}", parameters[i].ToString());
+        }
+
+        return value;
+    }
+
     public void SetLanguage(string? acceptedLanguage)
     {
-        if(acceptedLanguage != null && 
-           _registerMessages.Any(registerMessage=> registerMessage.LocalizeKey?.ToLower() == acceptedLanguage.ToLower()))
-            _language =  acceptedLanguage; 
+        if (acceptedLanguage != null &&
+           _registerMessages.Any(registerMessage => registerMessage.LocalizeKey?.ToLower() == acceptedLanguage.ToLower()))
+            _language = acceptedLanguage;
         else _language = _defaultLanguage;
     }
 }
