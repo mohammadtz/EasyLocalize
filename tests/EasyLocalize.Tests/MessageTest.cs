@@ -65,4 +65,24 @@ public class MessageTest
         ukResult.Value.Should().NotBe(key);
         ukResult.Value.Should().Be("delectus aut autem");
     }
+    
+    [Fact]
+    public void Get_WhenPassParameters_ShouldBeExpected()
+    {
+        var key = "invalid";
+        var firstName = _message.Get("first_name");
+        var faResult = _message.Get(key, firstName.Value);
+
+        faResult.IsValid.Should().BeTrue();
+        faResult.Value.Should().NotBe(key);
+        faResult.Value.Should().Contain(firstName.Value);
+        
+        _message.SetLanguage("en-Us");
+        var enFirstName = _message.Get("first_name");
+        var enResult = _message.Get(key, enFirstName.Value);
+        
+        enResult.IsValid.Should().BeTrue();
+        enResult.Value.Should().NotBe(key);
+        enResult.Value.Should().Contain(enFirstName.Value);
+    }
 }
