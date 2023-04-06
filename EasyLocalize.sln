@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLocalize.Tests", "tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLocalize.Example", "src\EasyLocalize.Example\EasyLocalize.Example.csproj", "{03B9A8AC-36AD-435D-BE0D-2525AD3E24DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLocalize", "src\EasyLocalize\EasyLocalize.csproj", "{652C129E-F021-4500-ABD8-5B71F65CE496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLocalize", "src\EasyLocalize\EasyLocalize.csproj", "{652C129E-F021-4500-ABD8-5B71F65CE496}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyLocalize.DependencyInjection", "src\EasyLocalize.DependencyInjection\EasyLocalize.DependencyInjection.csproj", "{DD5F8BF1-8678-480E-B2EA-997C7091EA76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyLocalize.DependencyInjection", "src\EasyLocalize.DependencyInjection\EasyLocalize.DependencyInjection.csproj", "{DD5F8BF1-8678-480E-B2EA-997C7091EA76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

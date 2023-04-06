@@ -1,5 +1,8 @@
 ﻿{
     "Success": "Operation done successfully",
     "invalid": "{0} is invalid",
-    "first_name": "First name"
+    "first_name": "First name",
+    "fields": {
+        "mobile_number": "mobile number"
+    }
 }

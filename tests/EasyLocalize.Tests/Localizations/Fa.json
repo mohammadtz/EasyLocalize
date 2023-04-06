@@ -1,5 +1,8 @@
 ﻿{
   "Success": "عملیات با موفقیت انجام شد",
   "invalid": "{0} معتبر نیست",
-  "first_name": "نام"
+  "first_name": "نام",
+  "fields": {
+    "mobile_number": "شماره موبایل"
+  }
 }

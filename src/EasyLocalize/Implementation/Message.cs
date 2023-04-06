@@ -1,6 +1,6 @@
 ﻿using EasyLocalize.Contracts;
 using EasyLocalize.Models;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EasyLocalize.Implementation;
 
@@ -9,7 +9,7 @@ public class Message : IMessage
     private readonly IEnumerable<RegisterMessage> _registerMessages;
     private readonly string _defaultLanguage;
     private string _language;
-    private readonly Dictionary<string, Dictionary<string, string>> _messages;
+    private readonly Dictionary<string, JObject> _messages;
     public string DefaultHeaderName { get; }
     private readonly HttpClient _client;
 
@@ -20,7 +20,7 @@ public class Message : IMessage
         _registerMessages = options.RegisterMessages;
         _language = options.DefaultLanguage;
         _defaultLanguage = options.DefaultLanguage;
-        _messages = new Dictionary<string, Dictionary<string, string>>();
+        _messages = new Dictionary<string, JObject>();
         DefaultHeaderName = options.DefaultHeaderName;
         _client = new HttpClient();
         FillData().Wait();
@@ -55,9 +55,9 @@ public class Message : IMessage
             using var response = await _client.GetAsync(registerMessage.JsonFilePath);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
-            var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
+            var data = JObject.Parse(responseBody);
 
-            if (registerMessage.LocalizeKey != null && data != null)
+            if (registerMessage.LocalizeKey != null && data.HasValues)
                 _messages.Add(registerMessage.LocalizeKey.ToLower(), data);
         }
         catch (HttpRequestException e)
@@ -78,29 +78,35 @@ public class Message : IMessage
         if (readFile.Length == 0)
             throw new Exception($"EasyLocalize - {registerMessage.LocalizeKey}: " + "json file is invalid");
 
-        var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(readFile);
+        var data = JObject.Parse(readFile);
 
-        if (registerMessage.LocalizeKey != null && data != null)
+        if (registerMessage.LocalizeKey != null && data.HasValues)
             _messages.Add(registerMessage.LocalizeKey.ToLower(), data);
     }
 
-    private Dictionary<string, string> GetMessagesByDefault
+    private JObject GetMessagesByDefault
     {
         get
         {
             _messages.TryGetValue(_language.ToLower(), out var values);
-            return values ?? new Dictionary<string, string>();
+            return values ?? new JObject();
         }
     }
 
     public EasyLocalizeResponse Get(string key, params object[] parameters)
     {
-        var defaultMessage = GetMessagesByDefault;
-        defaultMessage.TryGetValue(key, out var value);
+        JToken currentToken = GetMessagesByDefault;
 
-        value = FillParameters(parameters, value);
+        foreach (string propertyName in key.Split(':'))
+        {
+            currentToken = currentToken[propertyName] ?? string.Empty;
+        }
 
-        return new EasyLocalizeResponse { Value = value ?? key, IsValid = value != null };
+        string? propertyValue = currentToken.Value<string>();
+
+        propertyValue = FillParameters(parameters, propertyValue);
+
+        return new EasyLocalizeResponse { Value = propertyValue ?? key, IsValid = propertyValue != null };
     }
 
     private static string? FillParameters(object[] parameters, string? value)

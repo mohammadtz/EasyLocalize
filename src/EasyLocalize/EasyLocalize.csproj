@@ -14,11 +14,11 @@
 	  <OutputType>Library</OutputType>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
-	  <Version>1.0.4</Version>
+	  <Version>1.0.5</Version>
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="newtonsoft.json" Version="13.0.2" />
+		<PackageReference Include="newtonsoft.json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
