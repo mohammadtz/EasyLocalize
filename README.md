@@ -24,7 +24,7 @@ var localizeOptions = new EasyLocalizeOptions
     new()  
     {  
     	LocalizeKey = "fa-IR",  
-      	JsonFilePath = "https:\\{YOUR_WEBSITEADDRESS}\\Localizations\\fa.json",
+      	JsonFilePath = "https://{YOUR_WEBSITEADDRESS}/Localizations/fa.json",
       	IsExternal = true
     },
     // how many language your want just add it here
