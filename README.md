@@ -98,7 +98,7 @@ if (app.Environment.IsDevelopment())
    app.UseSwaggerUI();  
 }
 
-///TODO: ADD THIS LINE TO YOUR SOURCE
+///TODO: ADD THIS MIDDLEWARE TO READ LANGUAGE AUTOMATICLY FROM REQUEST HEADER "accept-language"
 app.UseEasyLocalization();
 ////////////////////////////////////
 
