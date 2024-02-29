@@ -1,15 +1,15 @@
 # EasyLocalize
 
-I started learning programming with JavaScript, then switched to TypeScript, and finally found my way to C#. C# became my favorite language, but I had a problem with the default localization system in the .NET ecosystem. When I used JS and TS, I preferred JSON format to localize my applications, because it was very simple and more functional. So I decided to write a simple package to handle software localization with JSON format in .NET. I hope you like it and find it valuable. This is my first published package, so it may have some issues. Please, if you encounter any problems with this package, share them with me.
+I started learning programming with JavaScript, then I decided to switch to TypeScript, and finally I found my way and become a C# Developer. After while C# became my favorite language, because of the features it has, but I had a problem with the default localization system in the .NET. When I used JS or TS, I preferred use JSON as localize in my applications, because it was very simple and more functional for me. So I decided to write a simple package to handle software localization with JSON format in .NET. I hope you like it and find it valuable. This is my first published package, so it may have some issues. If you find any problems in this package, please report it in Issues part.
 
 # Get Started
 
-To get started with this package you need first install [EasyLocalize](https://www.nuget.org/packages/EasyLocalize) Package from NuGet to your project, after that you can use it for any type of .Net project.
-In the source code, you can see the project name EasyLocalize.Example, this project is a console app to show you an example of how to use it in your project
+To get started with the package you have to install [EasyLocalize](https://www.nuget.org/packages/EasyLocalize) Package from NuGet, after that you can use it for any type of .Net projects.
+In the source code, you can find the project name EasyLocalize.Example, this project contain a console application to show an example of how to use it in your projects.
 
 ## Pure Usage
 
-A simple way to use it in any type of .Net project is after installing a package used like this:
+This way is simple usage for any type of .Net applications:
 ```csharp
 var localizeOptions = new EasyLocalizeOptions  
 {  
@@ -18,7 +18,7 @@ var localizeOptions = new EasyLocalizeOptions
     new()  
     {  
 	LocalizeKey = "en-US", // this is localization key package work with this name
-	JsonFilePath = "\\Localizations\\en.json", // json file address
+	JsonFilePath = "/Localizations/en.json", // json file address
 	IsExternal = false  // if is true means JsonFilePath is a external resuorce
     },
     new()  
@@ -33,7 +33,7 @@ var localizeOptions = new EasyLocalizeOptions
   DefaultLanguage = "en-US",  // Pick Your default 
 };
 
-// after create options object your must be pass to to Message Class and create new instanse
+// after create options object your must be pass options to Message Class and create new instanse
 var easyLocalize = new Message(localizeOptions);
 
 // just call Get method and put json localize key to get result
@@ -64,8 +64,8 @@ Console.WriteLine(newSuccessMessage.Value);
 ```
 
 
-## Use simpler with Dependency Injection version
-If your use any type of Asp.Net project support Dependency Injection,  You can simply use [EasyLocalize.DependencyInjection](https://www.nuget.org/packages/EasyLocalize.DependencyInjection/) Package this package is more simpler and useful than above option, In below Example, I show you how to use this package in Asp.Net WebApi project.
+## Use simpler with Dependency Injection version for ASP.NET projects
+If your use any type of Asp.Net project support Dependency Injection,  You can simply use [EasyLocalize.DependencyInjection](https://www.nuget.org/packages/EasyLocalize.DependencyInjection/) Package this package is more simpler and useful than above option, In below Example, I show you how to use the package in ASP.NET WebApi project.
 after install package, open Your `Program.cs` file and put below code to your project
 ```csharp
 // Add services to the container.  
@@ -106,7 +106,7 @@ app.UseHttpsRedirection();
 // ....
 ```
 
-Than You can use It like this:
+Than You can use it like below:
 ```csharp
 [ApiController]  
 [Route("api/[Controller]")]  
