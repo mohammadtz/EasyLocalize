@@ -1,6 +1,6 @@
 # EasyLocalize
 
-When I started learning programming with JavaScript, then switched to TypeScript, and finally found my way to C#. C# became my favorite language, but I had a problem with the default localization system in the .NET ecosystem. When I used JS and TS, I preferred JSON format to localize my applications, because it was very simple and more functional. So I decided to write a simple package to handle software localization with JSON format in .NET. I hope you like it and find it valuable. This is my first published package, so it may have some issues. Please, if you encounter any problems with this package, share them with me.
+I started learning programming with JavaScript, then switched to TypeScript, and finally found my way to C#. C# became my favorite language, but I had a problem with the default localization system in the .NET ecosystem. When I used JS and TS, I preferred JSON format to localize my applications, because it was very simple and more functional. So I decided to write a simple package to handle software localization with JSON format in .NET. I hope you like it and find it valuable. This is my first published package, so it may have some issues. Please, if you encounter any problems with this package, share them with me.
 
 # Get Started
 
